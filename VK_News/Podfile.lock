@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Reusable (4.0.5):
+    - Reusable/Storyboard (= 4.0.5)
+    - Reusable/View (= 4.0.5)
+  - Reusable/Storyboard (4.0.5)
+  - Reusable/View (4.0.5)
+  - VK-ios-sdk (1.4.6)
+
+DEPENDENCIES:
+  - Alamofire
+  - Reusable
+  - VK-ios-sdk
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Reusable
+    - VK-ios-sdk
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  VK-ios-sdk: 7fd48bc5aaa6b96c3197c1987eb6593f2ea67331
+
+PODFILE CHECKSUM: b44321c092ffe69e5e65c4e27c753e8f8d884fe3
+
+COCOAPODS: 1.6.1
