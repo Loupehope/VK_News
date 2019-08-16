@@ -3,5 +3,5 @@ target 'VK_News' do
 
   pod "VK-ios-sdk"
   pod 'Reusable'
-
+  pod 'Alamofire'
 end

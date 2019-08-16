@@ -9,7 +9,7 @@
 import Foundation
 import VK_ios_sdk
 
-protocol AuthServiceDelegate {
+protocol AuthServiceDelegate: class {
     func authServiceShouldShow(_ controller: UIViewController!)
     func authServiceSignIn()
     func authServiceSignInFail()
@@ -18,10 +18,13 @@ protocol AuthServiceDelegate {
 final class AuthService: NSObject {
     private enum Const {
         static let id = "7096692"
-        static let scope = ["offline"]
+        static let scope = ["wall,offline,friends"]
     }
     private let vkSdk: VKSdk = VKSdk.initialize(withAppId: Const.id)
-    var delegate: AuthServiceDelegate?
+    var token: String {
+        return VKSdk.accessToken().accessToken
+    }
+    weak var delegate: AuthServiceDelegate?
     
     override init() {
         super.init()
@@ -30,11 +33,11 @@ final class AuthService: NSObject {
     }
     
     func wakeUpSession() {
-        VKSdk.wakeUpSession(Const.scope) { (state, error) in
+        VKSdk.wakeUpSession(Const.scope) { [delegate] (state, error) in
             if error != nil { return }
             switch (state) {
             case VKAuthorizationState.authorized:
-                self.delegate?.authServiceSignIn()
+                delegate?.authServiceSignIn()
             case VKAuthorizationState.initialized:
                 VKSdk.authorize(Const.scope)
             default:
@@ -42,15 +45,23 @@ final class AuthService: NSObject {
             }
         }
     }
-    
+}
+
+extension VKSdk {
+    static func logout() {
+        VKSdk.forceLogout()
+        UserDefaults.standard.set(false, forKey: UserDefaults.Const.userAuthKey)
+    }
 }
 
 // MARK: VKSdkDelegate
 
 extension AuthService: VKSdkDelegate {
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        print(result)
-        delegate?.authServiceSignIn()
+        if result.token != nil {
+            UserDefaults.standard.set(true, forKey: UserDefaults.Const.userAuthKey)
+            delegate?.authServiceSignIn()
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {

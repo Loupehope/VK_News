@@ -11,6 +11,16 @@
 		F50E66C123052A4B00A520C1 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50E66C223052A4B00A520C1 /* Reusable.framework */; };
 		F50E66C423052C9C00A520C1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66C323052C9C00A520C1 /* FeedViewController.swift */; };
 		F50E66C623052D0F00A520C1 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50E66C523052D0F00A520C1 /* FeedViewController.storyboard */; };
+		F50E66DB2305907200A520C1 /* URL+FromComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66DA2305907200A520C1 /* URL+FromComponents.swift */; };
+		F50E66DD2305934500A520C1 /* FeedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66DC2305934500A520C1 /* FeedNetworkService.swift */; };
+		F50E66DF2305C2C400A520C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66DE2305C2C400A520C1 /* NetworkService.swift */; };
+		F50E66E12305C3D000A520C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66E02305C3D000A520C1 /* API.swift */; };
+		F50E66E32305C5D500A520C1 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66E22305C5D500A520C1 /* FeedViewModel.swift */; };
+		F50E66E52306967400A520C1 /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66E42306967400A520C1 /* UserDefaults+Keys.swift */; };
+		F50E66E72306995900A520C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50E66E82306995900A520C1 /* Alamofire.framework */; };
+		F50E66EB23069B9500A520C1 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66EA23069B9500A520C1 /* Feed.swift */; };
+		F50E66ED23069F8B00A520C1 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66EC23069F8B00A520C1 /* NetworkDataFetcher.swift */; };
+		F50E66EF2306A58300A520C1 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E66EE2306A58300A520C1 /* DataFetcher.swift */; };
 		F58CD161230430C90089BF28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58CD160230430C90089BF28 /* AppDelegate.swift */; };
 		F58CD166230430C90089BF28 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58CD164230430C90089BF28 /* AuthViewController.storyboard */; };
 		F58CD168230430C90089BF28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F58CD167230430C90089BF28 /* Assets.xcassets */; };
@@ -18,6 +28,11 @@
 		F58CD17423043B990089BF28 /* VK_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58CD17523043B990089BF28 /* VK_ios_sdk.framework */; };
 		F58CD17723043DD60089BF28 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58CD17623043DD60089BF28 /* AuthService.swift */; };
 		F58CD17A230441650089BF28 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58CD179230441650089BF28 /* AuthViewController.swift */; };
+		F59835032306ECF800E2A68B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59835022306ECF800E2A68B /* Item.swift */; };
+		F59835052306EF8F00E2A68B /* CountableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59835042306EF8F00E2A68B /* CountableItem.swift */; };
+		F59835072306F3F400E2A68B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59835062306F3F400E2A68B /* Response.swift */; };
+		F59835092306F4B000E2A68B /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59835082306F4B000E2A68B /* FeedCell.swift */; };
+		F598350C2306F4C000E2A68B /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F598350B2306F4C000E2A68B /* FeedCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +42,16 @@
 		F50E66C223052A4B00A520C1 /* Reusable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reusable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50E66C323052C9C00A520C1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F50E66C523052D0F00A520C1 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
+		F50E66DA2305907200A520C1 /* URL+FromComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+FromComponents.swift"; sourceTree = "<group>"; };
+		F50E66DC2305934500A520C1 /* FeedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNetworkService.swift; sourceTree = "<group>"; };
+		F50E66DE2305C2C400A520C1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F50E66E02305C3D000A520C1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F50E66E22305C5D500A520C1 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		F50E66E42306967400A520C1 /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
+		F50E66E82306995900A520C1 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50E66EA23069B9500A520C1 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		F50E66EC23069F8B00A520C1 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		F50E66EE2306A58300A520C1 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		F58CD15D230430C90089BF28 /* VK_News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58CD160230430C90089BF28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F58CD165230430C90089BF28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AuthViewController.storyboard; sourceTree = "<group>"; };
@@ -37,6 +62,11 @@
 		F58CD17523043B990089BF28 /* VK_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VK_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58CD17623043DD60089BF28 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F58CD179230441650089BF28 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		F59835022306ECF800E2A68B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F59835042306EF8F00E2A68B /* CountableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountableItem.swift; sourceTree = "<group>"; };
+		F59835062306F3F400E2A68B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		F59835082306F4B000E2A68B /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		F598350B2306F4C000E2A68B /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50E66E72306995900A520C1 /* Alamofire.framework in Frameworks */,
 				F50E66C123052A4B00A520C1 /* Reusable.framework in Frameworks */,
 				F58CD17423043B990089BF28 /* VK_ios_sdk.framework in Frameworks */,
 				C21FCA33D933641AC6330F71 /* Pods_VK_News.framework in Frameworks */,
@@ -56,6 +87,7 @@
 		5133FB592C94939A40460EE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F50E66E82306995900A520C1 /* Alamofire.framework */,
 				F50E66C223052A4B00A520C1 /* Reusable.framework */,
 				F58CD17523043B990089BF28 /* VK_ios_sdk.framework */,
 				F58CD173230434FA0089BF28 /* VK_ios_sdk.framework */,
@@ -77,9 +109,40 @@
 			isa = PBXGroup;
 			children = (
 				F50E66C323052C9C00A520C1 /* FeedViewController.swift */,
+				F50E66E22305C5D500A520C1 /* FeedViewModel.swift */,
 				F50E66C523052D0F00A520C1 /* FeedViewController.storyboard */,
+				F598350A2306F4B500E2A68B /* Cell */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		F50E66E62306967900A520C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F50E66DA2305907200A520C1 /* URL+FromComponents.swift */,
+				F50E66E42306967400A520C1 /* UserDefaults+Keys.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F50E66E923069B7500A520C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F50E66EA23069B9500A520C1 /* Feed.swift */,
+				F59835062306F3F400E2A68B /* Response.swift */,
+				F59835022306ECF800E2A68B /* Item.swift */,
+				F59835042306EF8F00E2A68B /* CountableItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F50E66F02306A6D000A520C1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F50E66EE2306A58300A520C1 /* DataFetcher.swift */,
+				F50E66DE2305C2C400A520C1 /* NetworkService.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F58CD154230430C90089BF28 = {
@@ -104,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				F58CD160230430C90089BF28 /* AppDelegate.swift */,
+				F50E66E923069B7500A520C1 /* Model */,
+				F50E66E62306967900A520C1 /* Extensions */,
 				F58CD17B2304416A0089BF28 /* Controllers */,
 				F58CD17823043DE00089BF28 /* Services */,
 				F58CD167230430C90089BF28 /* Assets.xcassets */,
@@ -116,7 +181,11 @@
 		F58CD17823043DE00089BF28 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F50E66F02306A6D000A520C1 /* Protocols */,
 				F58CD17623043DD60089BF28 /* AuthService.swift */,
+				F50E66E02305C3D000A520C1 /* API.swift */,
+				F50E66DC2305934500A520C1 /* FeedNetworkService.swift */,
+				F50E66EC23069F8B00A520C1 /* NetworkDataFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -137,6 +206,15 @@
 				F58CD164230430C90089BF28 /* AuthViewController.storyboard */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F598350A2306F4B500E2A68B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F59835082306F4B000E2A68B /* FeedCell.swift */,
+				F598350B2306F4C000E2A68B /* FeedCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +282,7 @@
 				F58CD168230430C90089BF28 /* Assets.xcassets in Resources */,
 				F58CD166230430C90089BF28 /* AuthViewController.storyboard in Resources */,
 				F50E66C623052D0F00A520C1 /* FeedViewController.storyboard in Resources */,
+				F598350C2306F4C000E2A68B /* FeedCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +314,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VK_News/Pods-VK_News-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 				"${BUILT_PRODUCTS_DIR}/VK-ios-sdk/VK_ios_sdk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VK_ios_sdk.framework",
 			);
@@ -255,10 +336,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50E66EF2306A58300A520C1 /* DataFetcher.swift in Sources */,
+				F50E66ED23069F8B00A520C1 /* NetworkDataFetcher.swift in Sources */,
+				F59835092306F4B000E2A68B /* FeedCell.swift in Sources */,
 				F58CD17A230441650089BF28 /* AuthViewController.swift in Sources */,
 				F58CD17723043DD60089BF28 /* AuthService.swift in Sources */,
+				F59835032306ECF800E2A68B /* Item.swift in Sources */,
+				F50E66E52306967400A520C1 /* UserDefaults+Keys.swift in Sources */,
 				F50E66C423052C9C00A520C1 /* FeedViewController.swift in Sources */,
+				F50E66EB23069B9500A520C1 /* Feed.swift in Sources */,
+				F59835072306F3F400E2A68B /* Response.swift in Sources */,
 				F58CD161230430C90089BF28 /* AppDelegate.swift in Sources */,
+				F50E66DD2305934500A520C1 /* FeedNetworkService.swift in Sources */,
+				F50E66DB2305907200A520C1 /* URL+FromComponents.swift in Sources */,
+				F59835052306EF8F00E2A68B /* CountableItem.swift in Sources */,
+				F50E66E12305C3D000A520C1 /* API.swift in Sources */,
+				F50E66DF2305C2C400A520C1 /* NetworkService.swift in Sources */,
+				F50E66E32305C5D500A520C1 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

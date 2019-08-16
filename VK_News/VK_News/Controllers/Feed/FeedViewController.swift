@@ -13,6 +13,16 @@ final class FeedViewController: UIViewController {
     private enum Const {
         static let storyboardName = "FeedViewController"
     }
+    private let viewModel = FeedViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.onFeedChanged = { (data) in
+            print("Working")
+        }
+        viewModel.loadMore()
+    }
 }
 
 // MARK: StoryboardSceneBased

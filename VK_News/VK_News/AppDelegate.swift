@@ -23,9 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         authService.delegate = self
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let authVC = AuthViewController.instantiate()
-        window?.rootViewController = authVC
-        
+        window?.rootViewController = AuthViewController.instantiate()
         return true
     }
     
