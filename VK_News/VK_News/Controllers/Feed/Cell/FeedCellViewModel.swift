@@ -1,0 +1,35 @@
+//
+//  FeedCellViewModel.swift
+//  VK_News
+//
+//  Created by Vlad on 17.08.19.
+//  Copyright © 2019 vlad. All rights reserved.
+//
+
+import UIKit
+
+final class FeedCellViewModel: FeedCellProtocol {
+    var onResponseTransformed: ((Post) -> Void)?
+    
+    func transform(response: Response, index: Int) {
+        let item = response.items[index]
+        let date = Date(timeIntervalSince1970: TimeInterval(item.date))
+        let source = getSource(for: item, profiles: response.profiles, groups: response.groups)
+        let post = Post(source: source.title,
+                        icon: UIImage(),
+                        likesCount: "\(item.likes?.count ?? 0)",
+                        commentsCount: "\(item.comments?.count ?? 0)",
+                        repostsCount: "\(item.reposts?.count ?? 0)",
+                        viewsCount: "\(item.views?.count ?? 0)",
+                        date: DateFormatter.feedFormat.string(from: date))
+        onResponseTransformed?(post)
+    }
+    
+    private func getSource(for item: Item, profiles: [Source], groups: [Source]) -> Source {
+        let sources = item.sourceID > 0 ? profiles : groups
+        let id = item.sourceID.abs()
+        return sources.first(where: { (source) in
+            source.id == id
+        })!
+    }
+}

@@ -10,4 +10,6 @@ import Foundation
 
 struct Response: Decodable {
     let items: [Item]
+    let profiles: [Profile]
+    let groups: [Group]
 }

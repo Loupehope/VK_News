@@ -13,15 +13,47 @@ final class FeedViewController: UIViewController {
     private enum Const {
         static let storyboardName = "FeedViewController"
     }
+    @IBOutlet private var tableView: UITableView!
     private let viewModel = FeedViewModel()
+    private var response: Response? {
+        didSet {
+            DispatchQueue.main.async { 
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.onFeedChanged = { (data) in
-            print("Working")
+        tableView.register(cellType: FeedCell.self)
+        viewModel.onFeedChanged = { [weak self] (feed) in
+            self?.response = feed.response
         }
         viewModel.loadMore()
+    }
+}
+
+// MARK: UITableViewDataSource
+
+extension FeedViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return response?.items.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath) as FeedCell
+        if let response = response {
+            cell.setResponseData(response, for: indexPath.row)
+        }
+        return cell
+    }
+}
+
+// MARK: UITableViewDelegate
+
+extension FeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 227
     }
 }
 

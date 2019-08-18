@@ -12,11 +12,11 @@ struct Item: Decodable {
     let sourceID: Int
     let postId: Int
     let date: Int
-    let text: String
-    let comments: CountableItem
-    let likes: CountableItem
-    let reposts: CountableItem
-    let views: CountableItem
+    let text: String?
+    let comments: CountableItem?
+    let likes: CountableItem?
+    let reposts: CountableItem?
+    let views: CountableItem?
     
     enum CodingKeys: String, CodingKey {
         case sourceID = "source_id"
