@@ -8,14 +8,18 @@
 
 import Foundation
 
-final class FeedViewModel {
-    private let dataFetcher = FeedNetworkDataFetcher(networkService: FeedNetworkService())
+final class FeedViewModel: FeedViewModelProtocol {
+    private let feedService: FeedNetworkService
     var onFeedChanged: ((Feed) -> Void)?
     
+    init(service: FeedNetworkService) {
+        feedService = service
+    }
+    
     func loadMore() {
-        dataFetcher.getData { [onFeedChanged] (data) in
-            guard let data = data else { return }
-            onFeedChanged?(data)
+        feedService.load { [weak self] (feed) in
+            guard let feed = feed else { return }
+            self?.onFeedChanged?(feed)
         }
     }
     

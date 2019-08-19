@@ -14,7 +14,7 @@ final class FeedViewController: UIViewController {
         static let storyboardName = "FeedViewController"
     }
     @IBOutlet private var tableView: UITableView!
-    private let viewModel = FeedViewModel()
+    private let viewModel = FeedViewModel(service: FeedNetworkService())
     private var response: Response? {
         didSet {
             DispatchQueue.main.async { 
@@ -43,7 +43,7 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as FeedCell
         if let response = response {
-            cell.setResponseData(response, for: indexPath.row)
+            cell.set(with: response, for: indexPath.row)
         }
         return cell
     }

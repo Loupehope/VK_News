@@ -10,7 +10,6 @@ import UIKit
 
 struct Post {
     let source: String
-    let icon: UIImage
     let likesCount: String
     let commentsCount: String
     let repostsCount: String

@@ -6,10 +6,13 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FeedCellProtocol {
     var onResponseTransformed: ((Post) -> Void)? { get set}
+    var onIconLoaded: ((UIImage) -> Void)? { get set}
     
-    func transform(response: Response, index: Int)
+    func loadIcon()
+    func transform(response: Response, for index: Int)
+    func cancelRequests()
 }
