@@ -9,5 +9,7 @@
 import Foundation
 
 protocol NetworkService {
-    func request(path: String, params: [String: String], _ completionHandler: @escaping (Data?, Error?) -> Void)
+    associatedtype Result
+    
+    func load(_ completionHandler: @escaping (Result?) -> Void)
 }
