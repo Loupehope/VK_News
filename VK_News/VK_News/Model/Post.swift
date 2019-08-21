@@ -15,4 +15,5 @@ struct Post {
     let repostsCount: String
     let viewsCount: String
     let date: String
+    let text: String
 }

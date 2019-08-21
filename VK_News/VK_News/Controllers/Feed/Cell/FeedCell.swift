@@ -14,14 +14,21 @@ final class FeedCell: UITableViewCell {
         static let cellId = "FeedCell"
     }
     private let viewModel = FeedCellViewModel(service: ImageNetworkService())
+    @IBOutlet private var backView: UIView! {
+        didSet {
+            backView.layer.cornerRadius = 10
+            backView.clipsToBounds = true
+        }
+    }
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var iconImageView: UIImageView! {
         didSet {
-            iconImageView.layer.cornerRadius = 10
+            iconImageView.layer.cornerRadius = 15
             iconImageView.clipsToBounds = true
         }
     }
+    @IBOutlet private var feedTextLabel: UILabel!
     @IBOutlet private var likesCountLabel: UILabel!
     @IBOutlet private var commentsCountLabel: UILabel!
     @IBOutlet private var repostsCountLabel: UILabel!
@@ -35,7 +42,6 @@ final class FeedCell: UITableViewCell {
         repostsCountLabel.text = String()
         viewsCountLabel.text = String()
         iconImageView.image = nil
-        viewModel.cancelRequests()
     }
     
     override func awakeFromNib() {
@@ -46,6 +52,7 @@ final class FeedCell: UITableViewCell {
             self?.commentsCountLabel.text = source.commentsCount
             self?.repostsCountLabel.text = source.repostsCount
             self?.viewsCountLabel.text = source.viewsCount
+            self?.feedTextLabel.text = source.text
         }
         viewModel.onIconLoaded = { [weak self] (icon) in
             self?.iconImageView.image = icon

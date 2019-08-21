@@ -14,5 +14,4 @@ protocol FeedCellProtocol {
     
     func loadIcon()
     func transform(response: Response, for index: Int)
-    func cancelRequests()
 }
