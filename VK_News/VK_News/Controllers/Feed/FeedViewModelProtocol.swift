@@ -6,7 +6,7 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FeedViewModelProtocol {
     var onFeedChanged: ((Feed) -> Void)? { get set }

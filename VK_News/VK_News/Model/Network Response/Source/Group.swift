@@ -9,11 +9,13 @@
 import Foundation
 
 struct Group: Source, Decodable {
+    private let name: String
+    private let photo50: String
     var id: Int
-    var title: String
-    var photo: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, title = "name", photo = "photo_50"
+    var title: String {
+        return name
+    }
+    var photo: String {
+        return photo50
     }
 }

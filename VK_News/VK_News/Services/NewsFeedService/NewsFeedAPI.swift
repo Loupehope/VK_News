@@ -20,7 +20,7 @@ struct NewsFeedAPI {
         return "api.vk.com"
     }
     var headers: [String: String]? {
-        return ["access_token": token, "v": "5.101", "filters": "post,photo"]
+        return ["access_token": token, "v": "5.101", "filters": "post,photo", "count": "10"]
     }
 
     init(token: String) {
