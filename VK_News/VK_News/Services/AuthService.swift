@@ -36,21 +36,14 @@ final class AuthService: NSObject {
         VKSdk.wakeUpSession(Const.scope) { [delegate] (state, error) in
             if error != nil { return }
             switch (state) {
-            case VKAuthorizationState.authorized:
+            case .authorized:
                 delegate?.authServiceSignIn()
-            case VKAuthorizationState.initialized:
+            case .initialized:
                 VKSdk.authorize(Const.scope)
             default:
-                break
+                delegate?.authServiceSignInFail()
             }
         }
-    }
-}
-
-extension VKSdk {
-    static func logout() {
-        VKSdk.forceLogout()
-        UserDefaults.standard.set(false, forKey: UserDefaults.Const.userAuthKey)
     }
 }
 
@@ -59,7 +52,6 @@ extension VKSdk {
 extension AuthService: VKSdkDelegate {
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         if result.token != nil {
-            UserDefaults.standard.set(true, forKey: UserDefaults.Const.userAuthKey)
             delegate?.authServiceSignIn()
         }
     }

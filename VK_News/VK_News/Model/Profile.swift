@@ -9,18 +9,14 @@
 import Foundation
 
 struct Profile: Source, Decodable {
+    private let firstName: String
+    private let lastName: String
+    private let photo50: String
     var id: Int
-    var photo: String
-    var title: String {
-        return firstname + " " + lastname
+    var photo: String {
+        return photo50
     }
-    let firstname: String
-    let lastname: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case firstname = "first_name"
-        case lastname = "last_name"
-        case photo = "photo_50"
+    var title: String {
+        return firstName + " " + lastName
     }
 }

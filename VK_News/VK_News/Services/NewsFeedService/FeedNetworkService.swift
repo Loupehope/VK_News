@@ -21,7 +21,9 @@ final class FeedNetworkService: NetworkService {
         Alamofire.request(feedURL).responseData {
             switch $0.result {
             case let .success(data):
-                let result = try? JSONDecoder().decode(Feed.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let result = try? decoder.decode(Feed.self, from: data)
                 DispatchQueue.main.async {
                     completionHandler(result)
                 }

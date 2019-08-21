@@ -83,7 +83,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="IiK-f3-ayy">
-                                <rect key="frame" x="-2" y="180" width="343" height="25"/>
+                                <rect key="frame" x="-1" y="180" width="343" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MsY-UX-hn2">
                                         <rect key="frame" x="0.0" y="0.0" width="68.5" height="25"/>
@@ -212,15 +212,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-7c-FXq">
+                                <rect key="frame" x="18" y="95" width="287" height="70"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IiK-f3-ayy" firstAttribute="width" secondItem="UTz-Wf-gpx" secondAttribute="width" id="3go-va-uNm"/>
                             <constraint firstItem="38R-LF-HzP" firstAttribute="top" secondItem="eMw-nR-hOd" secondAttribute="bottom" constant="8" id="5Jr-Q1-ygT"/>
+                            <constraint firstItem="0kB-7c-FXq" firstAttribute="top" secondItem="38R-LF-HzP" secondAttribute="bottom" constant="8.5" id="9F2-ud-5Dp"/>
                             <constraint firstAttribute="trailing" secondItem="38R-LF-HzP" secondAttribute="trailing" constant="8" id="Aet-sZ-aeW"/>
+                            <constraint firstItem="0kB-7c-FXq" firstAttribute="leading" secondItem="UTz-Wf-gpx" secondAttribute="leading" constant="18" id="FnB-BY-hwm"/>
+                            <constraint firstAttribute="trailing" secondItem="0kB-7c-FXq" secondAttribute="trailing" constant="38" id="LyB-6n-94B"/>
                             <constraint firstAttribute="trailing" secondItem="eMw-nR-hOd" secondAttribute="trailing" constant="8" id="PzC-bu-iok"/>
-                            <constraint firstAttribute="trailing" secondItem="IiK-f3-ayy" secondAttribute="trailing" constant="2" id="QVu-Oh-ftW"/>
-                            <constraint firstItem="IiK-f3-ayy" firstAttribute="leading" secondItem="UTz-Wf-gpx" secondAttribute="leading" constant="-2" id="Zan-UZ-7kr"/>
+                            <constraint firstAttribute="trailing" secondItem="IiK-f3-ayy" secondAttribute="trailing" constant="1" id="QVu-Oh-ftW"/>
+                            <constraint firstItem="IiK-f3-ayy" firstAttribute="top" secondItem="0kB-7c-FXq" secondAttribute="bottom" constant="15" id="R6O-Pj-hWH"/>
+                            <constraint firstItem="IiK-f3-ayy" firstAttribute="leading" secondItem="UTz-Wf-gpx" secondAttribute="leading" constant="-1" id="Zan-UZ-7kr"/>
                             <constraint firstItem="38R-LF-HzP" firstAttribute="leading" secondItem="UTz-Wf-gpx" secondAttribute="leading" constant="8" id="eLr-6S-Qlx"/>
                             <constraint firstItem="eMw-nR-hOd" firstAttribute="top" secondItem="UTz-Wf-gpx" secondAttribute="top" constant="8" id="kN2-LQ-c2y"/>
                             <constraint firstAttribute="bottom" secondItem="IiK-f3-ayy" secondAttribute="bottom" id="pYP-zd-1Zx"/>
@@ -237,6 +244,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="attechmentImageView" destination="0kB-7c-FXq" id="vrn-Eq-gUB"/>
                 <outlet property="backView" destination="UTz-Wf-gpx" id="jC3-0I-Omx"/>
                 <outlet property="commentsCountLabel" destination="vXh-su-i7j" id="E0a-1k-uYq"/>
                 <outlet property="dateLabel" destination="NYd-hK-PSK" id="sql-0e-RJH"/>

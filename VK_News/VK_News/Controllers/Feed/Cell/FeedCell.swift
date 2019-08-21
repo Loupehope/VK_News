@@ -33,6 +33,7 @@ final class FeedCell: UITableViewCell {
     @IBOutlet private var commentsCountLabel: UILabel!
     @IBOutlet private var repostsCountLabel: UILabel!
     @IBOutlet private var viewsCountLabel: UILabel!
+    @IBOutlet private var attechmentImageView: UIImageView!
     
     override func prepareForReuse() {
         titleLabel.text = String()
@@ -45,7 +46,7 @@ final class FeedCell: UITableViewCell {
     }
     
     override func awakeFromNib() {
-        viewModel.onResponseTransformed = { [weak self] (source) in
+        viewModel.toPostTransformed = { [weak self] (source) in
             self?.titleLabel.text = source.source
             self?.dateLabel.text = source.date
             self?.likesCountLabel.text = source.likesCount
@@ -57,11 +58,13 @@ final class FeedCell: UITableViewCell {
         viewModel.onIconLoaded = { [weak self] (icon) in
             self?.iconImageView.image = icon
         }
+        viewModel.onAttechmentsLoaded = { [weak self] (image) in
+            self?.attechmentImageView.image = image
+        }
     }
     
     func set(with response: Response, for index: Int) {
-        viewModel.transform(response: response, for: index)
-        viewModel.loadIcon()
+        viewModel.fetch(response: response, at: index)
     }
     
 }

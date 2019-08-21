@@ -9,18 +9,13 @@
 import Foundation
 
 struct Item: Decodable {
-    let sourceID: Int
+    let sourceId: Int
     let postId: Int
     let date: Int
     let text: String?
+    let attachments: [Attachment]?
     let comments: CountableItem?
     let likes: CountableItem?
     let reposts: CountableItem?
     let views: CountableItem?
-    
-    enum CodingKeys: String, CodingKey {
-        case sourceID = "source_id"
-        case postId = "post_id"
-        case date, text, comments, likes, reposts, views
-    }
 }

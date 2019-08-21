@@ -9,9 +9,9 @@
 import UIKit
 
 protocol FeedCellProtocol {
-    var onResponseTransformed: ((Post) -> Void)? { get set}
-    var onIconLoaded: ((UIImage) -> Void)? { get set}
+    var toPostTransformed: ((Post) -> Void)? { get set }
+    var onIconLoaded: ((UIImage) -> Void)? { get set }
+    var onAttechmentsLoaded: ((UIImage) -> Void)? { get set }
     
-    func loadIcon()
-    func transform(response: Response, for index: Int)
+    func fetch(response: Response, at index: Int)
 }
