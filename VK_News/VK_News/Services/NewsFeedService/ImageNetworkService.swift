@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 
 final class ImageNetworkService: NetworkService {
-    var imageURL: String?
+    var url: String?
     
     func load(_ completionHandler: @escaping (UIImage?) -> Void) {
-        guard let photoURL = URL(string: imageURL ?? "") else { return }
+        guard let photoURL = URL(string: url ?? "") else { return }
         if let cachedImage = URLCache.shared.cachedResponse(for: URLRequest(url: photoURL)) {
             completionHandler(UIImage(data: cachedImage.data)!)
             return

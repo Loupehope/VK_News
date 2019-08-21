@@ -16,4 +16,5 @@ struct Post {
     let viewsCount: String
     let date: String
     let text: String
+    let sizes: FeedCellSizesProtocol
 }

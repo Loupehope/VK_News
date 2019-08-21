@@ -34,6 +34,7 @@ final class FeedCell: UITableViewCell {
     @IBOutlet private var repostsCountLabel: UILabel!
     @IBOutlet private var viewsCountLabel: UILabel!
     @IBOutlet private var attechmentImageView: UIImageView!
+    @IBOutlet private var attachmentHeight: NSLayoutConstraint!
     
     override func prepareForReuse() {
         titleLabel.text = String()
@@ -43,6 +44,7 @@ final class FeedCell: UITableViewCell {
         repostsCountLabel.text = String()
         viewsCountLabel.text = String()
         iconImageView.image = nil
+        attechmentImageView.image = nil
     }
     
     override func awakeFromNib() {
@@ -54,6 +56,7 @@ final class FeedCell: UITableViewCell {
             self?.repostsCountLabel.text = source.repostsCount
             self?.viewsCountLabel.text = source.viewsCount
             self?.feedTextLabel.text = source.text
+            self?.attachmentHeight.constant = source.sizes.attechmentHeight
         }
         viewModel.onIconLoaded = { [weak self] (icon) in
             self?.iconImageView.image = icon

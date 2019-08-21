@@ -10,11 +10,13 @@ import UIKit
 import Alamofire
 
 final class FeedCellViewModel: FeedCellProtocol {
+    private enum Content {
+        case icon, imageAttechment
+    }
     var toPostTransformed: ((Post) -> Void)?
     var onIconLoaded: ((UIImage) -> Void)?
     var onAttechmentsLoaded: ((UIImage) -> Void)?
     private var imageService: ImageNetworkService
-    private var item: Item!
     
     init(service: ImageNetworkService) {
         imageService = service
@@ -23,43 +25,39 @@ final class FeedCellViewModel: FeedCellProtocol {
     func fetch(response: Response, at index: Int) {
         let item = response.items[index]
         let source = getSource(for: item, profiles: response.profiles, groups: response.groups)
-        transformToPost(from: source, and: item)
-        loadIcon(for: source.photo)
-        loadAttechmentImages(for: getPhotoURL(from: item.attachments ?? []) ?? "")
-        
-        
+        guard let attechment = item.attachments?.first else { return }
+        transformToPost(from: source, item, and: attechment)
+        load(content: .icon, for: source.photo)
+        load(content: .imageAttechment, for: attechment.photo?.currentSize?.url ?? "")
     }
     
-    private func getPhotoURL(from attechments: [Attachment]) -> String? {
-        guard let attechment = attechments.first else { return nil }
-        return attechment.photo?.currentSize?.url
-    }
+    // MARK: private
     
-    private func transformToPost(from source: Source, and item: Item) {
+    private func transformToPost(from source: Source, _ item: Item, and attechment: Attachment) {
         let date = Date(timeIntervalSince1970: TimeInterval(item.date))
+        let sizes = FeedSizes(width: UIScreen.main.bounds.width - 16, photoAttachment: attechment)
         let post = Post(source: source.title,
                         likesCount: "\(item.likes?.count ?? 0)",
                         commentsCount: "\(item.comments?.count ?? 0)",
                         repostsCount: "\(item.reposts?.count ?? 0)",
                         viewsCount: "\(item.views?.count ?? 0)",
                         date: DateFormatter.feedFormat.string(from: date),
-                        text: item.text ?? "")
+                        text: item.text ?? "",
+                        sizes: sizes)
         toPostTransformed?(post)
     }
     
-    private func loadIcon(for url: String) {
-        imageService.imageURL = url
+    private func load(content: Content, for url: String) {
+        imageService.url = url
         imageService.load { [weak self] (image) in
+            guard let self = self else { return }
             guard let image = image else { return }
-            self?.onIconLoaded?(image)
-        }
-    }
-    
-    private func loadAttechmentImages(for url: String) {
-        imageService.imageURL = url
-        imageService.load { [weak self] (image) in
-            guard let image = image else { return }
-            self?.onAttechmentsLoaded?(image)
+            switch content {
+            case .icon:
+                self.onIconLoaded?(image)
+            case .imageAttechment:
+                self.onAttechmentsLoaded?(image)
+            }
         }
     }
     
