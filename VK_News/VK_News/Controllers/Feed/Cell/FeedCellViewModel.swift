@@ -16,7 +16,6 @@ final class FeedCellViewModel: FeedCellProtocol {
     var toPostTransformed: ((Post) -> Void)?
     var onIconLoaded: ((UIImage) -> Void)?
     var onAttechmentsLoaded: ((UIImage) -> Void)?
-    var onHeightChanged: ((CGFloat) -> Void)?
     
     private var imageService: ImageNetworkService
     
