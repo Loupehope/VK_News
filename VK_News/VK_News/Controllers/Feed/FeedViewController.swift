@@ -15,6 +15,7 @@ final class FeedViewController: UIViewController {
     }
     @IBOutlet private var tableView: UITableView!
     private let viewModel = FeedViewModel(service: FeedNetworkService())
+    private var rowHeight: CGFloat = 0
     private var response: Response? {
         didSet {
             DispatchQueue.main.async { 
@@ -43,7 +44,9 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as FeedCell
         if let response = response {
-            cell.set(with: response, for: indexPath.row)
+            cell.set(with: response, for: indexPath.row) { height in
+                self.rowHeight = height
+            }
         }
         return cell
     }
@@ -53,7 +56,7 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return rowHeight
     }
 }
 

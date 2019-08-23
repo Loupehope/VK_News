@@ -4,4 +4,6 @@ target 'VK_News' do
   pod "VK-ios-sdk"
   pod 'Reusable'
   pod 'Alamofire'
+  pod 'Reveal-SDK', :configurations => ['Debug']
+
 end

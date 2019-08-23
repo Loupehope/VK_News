@@ -16,6 +16,8 @@ final class FeedCellViewModel: FeedCellProtocol {
     var toPostTransformed: ((Post) -> Void)?
     var onIconLoaded: ((UIImage) -> Void)?
     var onAttechmentsLoaded: ((UIImage) -> Void)?
+    var onHeightChanged: ((CGFloat) -> Void)?
+    
     private var imageService: ImageNetworkService
     
     init(service: ImageNetworkService) {
@@ -35,7 +37,7 @@ final class FeedCellViewModel: FeedCellProtocol {
     
     private func transformToPost(from source: Source, _ item: Item, and attechment: Attachment) {
         let date = Date(timeIntervalSince1970: TimeInterval(item.date))
-        let sizes = FeedSizes(width: UIScreen.main.bounds.width - 16, photoAttachment: attechment)
+        let sizes = FeedSizes(width: UIScreen.main.bounds.width - 16, photoAttachment: attechment, text: item.text)
         let post = Post(source: source.title,
                         likesCount: "\(item.likes?.count ?? 0)",
                         commentsCount: "\(item.comments?.count ?? 0)",

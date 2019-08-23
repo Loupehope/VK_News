@@ -6,7 +6,7 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class FeedViewModel: FeedViewModelProtocol {
     private let feedService: FeedNetworkService
