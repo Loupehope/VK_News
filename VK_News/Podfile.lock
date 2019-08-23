@@ -5,28 +5,28 @@ PODS:
     - Reusable/View (= 4.0.5)
   - Reusable/Storyboard (4.0.5)
   - Reusable/View (4.0.5)
-  - Reveal-SDK (24)
+  - SwiftLint (0.34.0)
   - VK-ios-sdk (1.4.6)
 
 DEPENDENCIES:
   - Alamofire
   - Reusable
-  - Reveal-SDK
+  - SwiftLint
   - VK-ios-sdk
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Reusable
-    - Reveal-SDK
+    - SwiftLint
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
-  Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   VK-ios-sdk: 7fd48bc5aaa6b96c3197c1987eb6593f2ea67331
 
-PODFILE CHECKSUM: 778caf28e67427c244de7baec4b0bce74591590d
+PODFILE CHECKSUM: 15428ecbb3540f602ecdd1437062220b12c0c09b
 
 COCOAPODS: 1.7.5

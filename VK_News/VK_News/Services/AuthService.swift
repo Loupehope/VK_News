@@ -9,8 +9,8 @@
 import Foundation
 import VK_ios_sdk
 
-protocol AuthServiceDelegate: class {
-    func authServiceShouldShow(_ controller: UIViewController!)
+protocol AuthServiceDelegate: AnyObject {
+    func authServiceShouldShow(_ controller: UIViewController)
     func authServiceSignIn()
     func authServiceSignInFail()
 }
@@ -20,7 +20,7 @@ final class AuthService: NSObject {
         static let id = "7096692"
         static let scope = ["wall,offline,friends"]
     }
-    private let vkSdk: VKSdk = VKSdk.initialize(withAppId: Const.id)
+    private let vkSdk = VKSdk.initialize(withAppId: Const.id)
     var token: String {
         return VKSdk.accessToken().accessToken
     }
@@ -28,14 +28,16 @@ final class AuthService: NSObject {
     
     override init() {
         super.init()
-        vkSdk.register(self)
-        vkSdk.uiDelegate = self
+        vkSdk?.register(self)
+        vkSdk?.uiDelegate = self
     }
     
     func wakeUpSession() {
-        VKSdk.wakeUpSession(Const.scope) { [delegate] (state, error) in
-            if error != nil { return }
-            switch (state) {
+        VKSdk.wakeUpSession(Const.scope) { [delegate] state, error in
+            if error != nil {
+                return
+            }
+            switch state {
             case .authorized:
                 delegate?.authServiceSignIn()
             case .initialized:
@@ -48,6 +50,7 @@ final class AuthService: NSObject {
 }
 
 // MARK: VKSdkDelegate
+// swiftlint:disable implicitly_unwrapped_optional
 
 extension AuthService: VKSdkDelegate {
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
@@ -57,7 +60,6 @@ extension AuthService: VKSdkDelegate {
     }
     
     func vkSdkUserAuthorizationFailed() {
-        
     }
 }
 
@@ -69,7 +71,5 @@ extension AuthService: VKSdkUIDelegate {
     }
     
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
-        
     }
 }
-

@@ -17,10 +17,9 @@ final class FeedViewModel: FeedViewModelProtocol {
     }
     
     func loadMore() {
-        feedService.load { [weak self] (feed) in
+        feedService.load { [weak self] feed in
             guard let feed = feed else { return }
             self?.onFeedChanged?(feed)
         }
     }
-    
 }

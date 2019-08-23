@@ -6,8 +6,8 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import UIKit
 import Reusable
+import UIKit
 
 final class FeedViewController: UIViewController {
     private enum Const {
@@ -27,7 +27,7 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(cellType: FeedCell.self)
-        viewModel.onFeedChanged = { [weak self] (feed) in
+        viewModel.onFeedChanged = { [weak self] feed in
             self?.response = feed.response
         }
         viewModel.loadMore()

@@ -6,8 +6,8 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import UIKit
 import Reusable
+import UIKit
 
 final class FeedCell: UITableViewCell {
     private enum Const {
@@ -38,12 +38,14 @@ final class FeedCell: UITableViewCell {
     private var rowHeight: CGFloat?
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         attechmentImageView.image = nil
         iconImageView.image = nil
     }
     
     override func awakeFromNib() {
-        viewModel.toPostTransformed = { [weak self] (source) in
+        super.awakeFromNib()
+        viewModel.toPostTransformed = { [weak self] source in
             self?.titleLabel.text = source.source
             self?.dateLabel.text = source.date
             self?.likesCountLabel.text = source.likesCount
@@ -53,10 +55,10 @@ final class FeedCell: UITableViewCell {
             self?.feedTextLabel.text = source.text
             self?.rowHeight = source.sizes.attechmentHeight + source.sizes.textHeight + Const.insect
         }
-        viewModel.onIconLoaded = { [weak self] (icon) in
+        viewModel.onIconLoaded = { [weak self] icon in
             self?.iconImageView.image = icon
         }
-        viewModel.onAttechmentsLoaded = { [weak self] (image) in
+        viewModel.onAttechmentsLoaded = { [weak self] image in
             self?.attechmentImageView.image = image
         }
     }
@@ -74,5 +76,3 @@ extension FeedCell: NibReusable {
         return Const.cellId
     }
 }
-
-

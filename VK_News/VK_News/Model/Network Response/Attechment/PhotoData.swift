@@ -1,5 +1,5 @@
 //
-//  Size.swift
+//  PhotoData.swift
 //  VK_News
 //
 //  Created by Vlad Suhomlinov on 21/08/2019.

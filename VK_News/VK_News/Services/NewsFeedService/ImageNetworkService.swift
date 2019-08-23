@@ -6,8 +6,8 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 final class ImageNetworkService: NetworkService {
     var url: String?
@@ -15,7 +15,7 @@ final class ImageNetworkService: NetworkService {
     func load(_ completionHandler: @escaping (UIImage?) -> Void) {
         guard let photoURL = URL(string: url ?? "") else { return }
         if let cachedImage = URLCache.shared.cachedResponse(for: URLRequest(url: photoURL)) {
-            completionHandler(UIImage(data: cachedImage.data)!)
+            completionHandler(UIImage(data: cachedImage.data) ?? UIImage())
             return
         }
         
@@ -25,7 +25,7 @@ final class ImageNetworkService: NetworkService {
             case let .success(data):
                 DispatchQueue.main.async {
                     self.store(data: data, for: response)
-                    completionHandler(UIImage(data: data)!)
+                    completionHandler(UIImage(data: data) ?? UIImage())
                 }
             case let .failure(error):
                 print(error.localizedDescription)

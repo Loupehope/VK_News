@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C6A3323230D4A7500676478 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A3322230D4A7500676478 /* Attachment.swift */; };
-		4C6A3326230D4CB900676478 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A3325230D4CB900676478 /* Size.swift */; };
+		4C6A3326230D4CB900676478 /* PhotoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A3325230D4CB900676478 /* PhotoData.swift */; };
 		4C6A3328230D4CC200676478 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A3327230D4CC200676478 /* Photo.swift */; };
 		4C6A332A230D7BEA00676478 /* FeedSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A3329230D7BEA00676478 /* FeedSizes.swift */; };
 		4C6A332C230DA26D00676478 /* FeedCellSizesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A332B230DA26D00676478 /* FeedCellSizesProtocol.swift */; };
@@ -52,7 +52,7 @@
 		0E8CE0FA7086213F3DDC7CF6 /* Pods_VK_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6A3321230D3D7300676478 /* VK_News.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VK_News.entitlements; sourceTree = "<group>"; };
 		4C6A3322230D4A7500676478 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
-		4C6A3325230D4CB900676478 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		4C6A3325230D4CB900676478 /* PhotoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoData.swift; sourceTree = "<group>"; };
 		4C6A3327230D4CC200676478 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4C6A3329230D7BEA00676478 /* FeedSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSizes.swift; sourceTree = "<group>"; };
 		4C6A332B230DA26D00676478 /* FeedCellSizesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellSizesProtocol.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6A3322230D4A7500676478 /* Attachment.swift */,
-				4C6A3325230D4CB900676478 /* Size.swift */,
+				4C6A3325230D4CB900676478 /* PhotoData.swift */,
 				4C6A3327230D4CC200676478 /* Photo.swift */,
 			);
 			path = Attechment;
@@ -315,6 +315,7 @@
 				F58CD15A230430C90089BF28 /* Frameworks */,
 				F58CD15B230430C90089BF28 /* Resources */,
 				6CC367BBDAE16E1640C04578 /* [CP] Embed Pods Frameworks */,
+				4C0D1809231078620068B447 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -381,6 +382,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4C0D1809231078620068B447 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		5B71BDC7B46730F45EDBBFB4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,14 +427,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-VK_News/Pods-VK_News-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/VK-ios-sdk/VK_ios_sdk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VK_ios_sdk.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +462,7 @@
 				F50E66C423052C9C00A520C1 /* FeedViewController.swift in Sources */,
 				4C6A332C230DA26D00676478 /* FeedCellSizesProtocol.swift in Sources */,
 				4C6A332A230D7BEA00676478 /* FeedSizes.swift in Sources */,
-				4C6A3326230D4CB900676478 /* Size.swift in Sources */,
+				4C6A3326230D4CB900676478 /* PhotoData.swift in Sources */,
 				F50E66EB23069B9500A520C1 /* Feed.swift in Sources */,
 				F59835072306F3F400E2A68B /* Response.swift in Sources */,
 				F58CD161230430C90089BF28 /* AppDelegate.swift in Sources */,

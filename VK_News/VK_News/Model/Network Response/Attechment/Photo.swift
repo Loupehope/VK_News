@@ -22,5 +22,4 @@ struct Photo: Decodable {
         }
         return nil
     }
-    
 }

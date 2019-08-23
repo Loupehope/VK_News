@@ -6,8 +6,8 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import UIKit
 import Alamofire
+import UIKit
 
 final class FeedCellViewModel: FeedCellProtocol {
     private enum Content {
@@ -25,8 +25,11 @@ final class FeedCellViewModel: FeedCellProtocol {
     
     func fetch(response: Response, at index: Int) {
         let item = response.items[index]
-        let source = getSource(for: item, profiles: response.profiles, groups: response.groups)
+        guard let source = getSource(for: item,
+                                     profiles: response.profiles,
+                                     groups: response.groups) else { return }
         guard let attechment = item.attachments?.first else { return }
+        
         transformToPost(from: source, item, and: attechment)
         load(content: .icon, for: source.photo)
         load(content: .imageAttechment, for: attechment.photo?.currentSize?.url ?? "")
@@ -50,7 +53,7 @@ final class FeedCellViewModel: FeedCellProtocol {
     
     private func load(content: Content, for url: String) {
         imageService.url = url
-        imageService.load { [weak self] (image) in
+        imageService.load { [weak self] image in
             guard let self = self else { return }
             guard let image = image else { return }
             switch content {
@@ -62,11 +65,11 @@ final class FeedCellViewModel: FeedCellProtocol {
         }
     }
     
-    private func getSource(for item: Item, profiles: [Source], groups: [Source]) -> Source {
+    private func getSource(for item: Item, profiles: [Source], groups: [Source]) -> Source? {
         let sources = item.sourceId > 0 ? profiles : groups
         let id = item.sourceId.abs()
-        return sources.first(where: { (source) in
+        return sources.first { source in
             source.id == id
-        })!
+        }
     }
 }

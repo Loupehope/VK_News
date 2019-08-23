@@ -6,9 +6,9 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
+import Reusable
 import UIKit
 import VK_ios_sdk
-import Reusable
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var authService = AuthService()
     
     static func shared() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
+        guard let shared = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Couldn't cast to AppDelegate")
+        }
+        return shared
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: AuthServiceDelegate
 
 extension AppDelegate: AuthServiceDelegate {
-    func authServiceShouldShow(_ controller: UIViewController!) {
+    func authServiceShouldShow(_ controller: UIViewController) {
         window?.rootViewController?.present(controller, animated: true, completion: nil)
     }
     

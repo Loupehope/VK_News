@@ -6,8 +6,8 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import UIKit
 import Reusable
+import UIKit
 
 final class AuthViewController: UIViewController {
     private enum Const {
@@ -19,7 +19,7 @@ final class AuthViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func signInTouch(_ sender: UIButton) {
+    @IBAction private func signInTouch(_ sender: UIButton) {
         authService.wakeUpSession()
     }
 }

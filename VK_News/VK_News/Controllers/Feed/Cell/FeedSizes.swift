@@ -21,7 +21,7 @@ struct FeedSizes: FeedCellSizesProtocol {
         return text.height(width: width, font: .systemFont(ofSize: 15))
     }
     private let width: CGFloat
-    private let photoAttachment:  Attachment?
+    private let photoAttachment: Attachment?
     private let text: String?
     
     init(width: CGFloat, photoAttachment: Attachment?, text: String?) {
@@ -35,10 +35,7 @@ extension String {
     func height(width: CGFloat, font: UIFont) -> CGFloat {
         let textSize = CGSize(width: width, height: .greatestFiniteMagnitude)
         let attrib = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]
-        let size  = self.boundingRect(with: textSize,
-                                      options: .usesLineFragmentOrigin,
-                                      attributes: attrib,
-                                      context: nil)
+        let size = self.boundingRect(with: textSize, options: .usesLineFragmentOrigin, attributes: attrib, context: nil)
         return ceil(size.height)
     }
 }

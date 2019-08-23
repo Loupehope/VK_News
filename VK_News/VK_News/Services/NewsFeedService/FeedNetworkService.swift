@@ -6,8 +6,8 @@
 //  Copyright © 2019 vlad. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 final class FeedNetworkService: NetworkService {
     private let authService = AppDelegate.shared().authService
