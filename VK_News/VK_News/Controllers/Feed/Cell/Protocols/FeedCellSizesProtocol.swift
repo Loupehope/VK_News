@@ -10,4 +10,5 @@ import UIKit
 
 protocol FeedCellSizesProtocol {
     var attechmentHeight: CGFloat { get }
+    var textHeight: CGFloat { get }
 }
